@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulación de Operación y Mantenimiento SAG</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Simulación de Operación y Mantenimiento SAG</h2>
+    <div class="sliders">
+      <div class="slider-container">
+        <label for="p80">P80 (mm): <span id="p80_val">100</span></label>
+        <div id="p80_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="sag_water">SAG Water Feeding (m³/h): <span id="sag_water_val">1350</span></label>
+        <div id="sag_water_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="sag_speed">Velocidad SAG (RPM): <span id="sag_speed_val">9</span></label>
+        <div id="sag_speed_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="sag_pressure">Presión SAG (kPa): <span id="sag_pressure_val">7700</span></label>
+        <div id="sag_pressure_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="stockpile_level">Nivel Stockpile (m): <span id="stockpile_level_val">25</span></label>
+        <div id="stockpile_level_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="sump_level">Nivel Sump (m): <span id="sump_level_val">90</span></label>
+        <div id="sump_level_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="hardness">Dureza: <span id="hardness_val">35</span></label>
+        <div id="hardness_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="solids_feeding">Sólidos en Alimentación (%): <span id="solids_feeding_val">70</span></label>
+        <div id="solids_feeding_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="pebble">Pebble (TpH): <span id="pebble_val">400</span></label>
+        <div id="pebble_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="gran_gt_100">Granulometría >100 mm (%): <span id="gran_gt_100_val">20</span></label>
+        <div id="gran_gt_100_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="gran_lt_30">Granulometría <30 mm (%): <span id="gran_lt_30_val">40</span></label>
+        <div id="gran_lt_30_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="porcentaje_fino">Porcentaje Fino (%): <span id="porcentaje_fino_val">70</span></label>
+        <div id="porcentaje_fino_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="consumo_energia_pct">Consumo Energía (%): <span id="consumo_energia_pct_val">100</span></label>
+        <div id="consumo_energia_pct_slider"></div>
+      </div>
+      <div class="slider-container">
+        <label for="edad_liner">Edad Liner (meses): <span id="edad_liner_val">3</span></label>
+        <div id="edad_liner_slider"></div>
+      </div>
+    </div>
+
+    <div class="gauges">
+      <div class="gauge">
+        <h3>Consumo Energía (MW)</h3>
+        <canvas id="energyGauge" width="300" height="300"></canvas>
+      </div>
+      <div class="gauge">
+        <h3>Probabilidad de Mantenimiento (%)</h3>
+        <canvas id="maintenanceGauge" width="300" height="300"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery y jQuery UI -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <!-- Canvas Gauges -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-gauges@2.1.7/gauge.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

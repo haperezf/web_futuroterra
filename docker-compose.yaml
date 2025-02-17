@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"    # The React app will be accessible at http://localhost:3000
+    networks:
+      - chatbot-net
+
+  backend1:
+    build: ./backend1
+    ports:
+      - "8000:8000"  # The Flask API is available on port 8000
+    volumes:
+      - ./data:/data  # Mount the data folder into the container
+    networks:
+      - chatbot-net
+
+  backend2:
+    build: ./backend2
+    ports:
+      - "5000:5000"  # The Flask API is available on port 8000
+    volumes:
+      - ./data:/app/data  # Mount the data folder into the container
+    networks:
+      - chatbot-net
+      
+networks:
+  chatbot-net:
+    driver: bridge
